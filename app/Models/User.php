@@ -44,4 +44,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function extraInfo()
+    {
+        return $this->hasOne(UserExtraInfo::class);
+    }
+
+    public function hostel()
+    {
+        return $this
+            ->belongsToMany(Hostel::class)
+            ->withTimestamps();
+    }
 }
